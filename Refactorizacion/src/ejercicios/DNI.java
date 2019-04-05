@@ -1,10 +1,21 @@
 package ejercicios;
 
 public class DNI {
+	private static final int NUMERO_DIVISOR = 23;
+	private static final String LETRAS = "TRWAGMYFPDXBNJZSQVHLCKE";
+
 	public static void main(String[] args) {
-		String l = "TRWAGMYFPDXBNJZSQVHLCKE";
-		int n = 12345678;
-		char letra = l.charAt(n % 23);
-		System.out.println("La letra del DNI es " + letra);
+		int numeros = 12345678;
+		mostrarLetraDNI(numeros);
+	}
+
+	private static void mostrarLetraDNI(int numero) {
+		char letraDNI = obtenerLetra(numero);
+		System.out.println("La letra del DNI es " + letraDNI);
+	}
+
+	private static char obtenerLetra(int numeros) {
+		char letraDNI = LETRAS.charAt(numeros % NUMERO_DIVISOR);
+		return letraDNI;
 	}
 }
